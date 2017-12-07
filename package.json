@@ -1,0 +1,23 @@
+{
+  "name": "adventure.peachyga.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martytheparty/rod-and-dad-adventure-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martytheparty/rod-and-dad-adventure-game/issues"
+  },
+  "homepage": "https://github.com/martytheparty/rod-and-dad-adventure-game#readme",
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
+}
