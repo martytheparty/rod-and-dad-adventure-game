@@ -1,0 +1,21 @@
+{
+  "name": "Heroes and Halfwits",
+  "homepage": "https://github.com/martytheparty/rod-and-dad-adventure-game",
+  "description": "Fun Times",
+  "main": "index.html",
+  "authors": [
+    "Rod and Dad"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "basichtmltemplate": "git://github.com/martytheparty/basichtmlproject#master"
+  }
+}
