@@ -55,7 +55,6 @@ function adminLogin() {
 }
 
 function showPlayerSelection() {
-  alert('update player UI');
   $('#player-enter').hide();
   $('#enter-dungeon').hide();
   $('#player-login').show();
