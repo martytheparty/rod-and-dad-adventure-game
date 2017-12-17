@@ -55,15 +55,28 @@
       </div>
 
       <div class="row" id="player-login">
-        <div class="column col-xs-1"></div>
-        <div class="column col-xs-10" style="text-align:center">
+        <div class="column col-xs-5"></div>
+        <div class="column col-xs-3" style="text-align:center">
           <div>
-              User Name:<input type='text' id='username'><br>
-              Word:<input type='text' id='word'>
+            <table>
+              <tr>
+                <td>User Name:</td>
+                <td><input type='text' id='username'></td>
+              </tr>
+              <tr>
+                <td>Word:</td>
+                <td><input type='text' id='word'></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <button onclick="loginPlayer()" style="width:200px">Login</button>
+                </td>
+              </tr>
+            </table>
           </div>
-          <button onclick="loginPlayer()" style="width:200px">Login</button>
+
         </div>
-        <div class="column col-xs-1"></div>
+        <div class="column col-xs-5"></div>
       </div>
 
     </div>
