@@ -53,11 +53,15 @@ function adminLogin() {
     }
   );
 }
+function loginPlayer() {
+  alert('login player');
 
+}
 function showPlayerSelection() {
   $('#player-enter').hide();
   $('#enter-dungeon').hide();
   $('#player-login').show();
+
 }
 
 function addPlayer() {
