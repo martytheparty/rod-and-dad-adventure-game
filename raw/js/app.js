@@ -62,4 +62,5 @@ function addPlayer() {
   playerObject.playerName = $("#adminPlayerEntry").val();
   playerObject.p = 'gamer';
   playersRef.push(playerObject);
+  $('#adminPlayerEntry').val("");
 }
