@@ -23,12 +23,12 @@ playersRef.on('value', function(snapshot) {
   $('#adminPlayerList').html(html);
 });
 
+$('#player-login').hide('');
 $('#login-dungeon').hide();
 $('#admin-dungeon').hide();
 $('#loading').hide();
 $('#loaded').show();
 $('#secret').val('');
-$('#player-login').hide('');
 
 function enterDungeonMaster() {
   $('#enter-dungeon').hide();
