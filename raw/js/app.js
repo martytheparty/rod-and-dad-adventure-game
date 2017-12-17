@@ -28,6 +28,7 @@ $('#admin-dungeon').hide();
 $('#loading').hide();
 $('#loaded').show();
 $('#secret').val('');
+$('#player-login').hide('');
 
 function enterDungeonMaster() {
   $('#enter-dungeon').hide();
@@ -55,6 +56,9 @@ function adminLogin() {
 
 function showPlayerSelection() {
   alert('update player UI');
+  $('#player-enter').hide();
+  $('#enter-dungeon').hide();
+  $('#player-login').show();
 }
 
 function addPlayer() {
