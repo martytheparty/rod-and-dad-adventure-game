@@ -13,12 +13,15 @@ firebase.initializeApp(config);
 
 var specialRef = firebase.database().ref('special');
 var playersRef = firebase.database().ref('players');
+var playerlist = [];
 
 playersRef.on('value', function(snapshot) {
   var html = '';
+  playerlist = [];
   snapshot.forEach(function(childSnapshot){
     var player = childSnapshot.val();
     html = html + player.playerName + '-' + player.p + '<br> \n';
+    playerlist.push({username:player.playerName,p:player.p});
   });
   $('#adminPlayerList').html(html);
 });
@@ -56,9 +59,12 @@ function adminLogin() {
   );
 }
 function loginPlayer() {
-  alert('login player');
-  alert($("#username").val());
-  alert($("#word").val());
+  var username = $("#username").val();
+  var p = $("#word").val();
+  for(var i=0;i<playerlist.length;i++){
+    console.log(playerlist[i]);
+
+  };
 }
 function showPlayerSelection() {
   $('#new-player').hide();
