@@ -57,7 +57,8 @@ function adminLogin() {
 }
 function loginPlayer() {
   alert('login player');
-
+  alert($("#username").val());
+  alert($("#word").val());
 }
 function showPlayerSelection() {
   $('#new-player').hide();
@@ -90,4 +91,13 @@ function createNewPlayer(){
   playersRef.push(playerObject);
   $('#playername').val("");
 
+  $('#player-login').hide('');
+  $('#login-dungeon').hide();
+  $('#admin-dungeon').hide();
+  $('#loading').hide();
+  $('#loaded').show();
+  $('#secret').val('');
+  $('#create-new-player').hide();
+  $('#enter-dungeon').show();
+  $('#player-enter').show();
 }
