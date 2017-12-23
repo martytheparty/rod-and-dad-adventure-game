@@ -65,6 +65,9 @@ function loginPlayer() {
     console.log(playerlist[i]);
 
   };
+  $('#username').val("");
+  $('#word').val("");
+
 }
 function showPlayerSelection() {
   $('#new-player').hide();
