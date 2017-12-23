@@ -31,6 +31,7 @@ $('#loaded').show();
 $('#secret').val('');
 
 function enterDungeonMaster() {
+  $('#new-player').hide();
   $('#enter-dungeon').hide();
   $('#player-enter').hide();
   $('#login-dungeon').show();
@@ -58,6 +59,7 @@ function loginPlayer() {
 
 }
 function showPlayerSelection() {
+  $('#new-player').hide();
   $('#player-enter').hide();
   $('#enter-dungeon').hide();
   $('#player-login').show();
