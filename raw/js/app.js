@@ -100,7 +100,7 @@ function createNewPlayer(){
   playersRef.push(playerObject);
   $('#playername').val("");
 
-  $('#player-login').hide('');
+  $('#player-login').hide();
   $('#login-dungeon').hide();
   $('#admin-dungeon').hide();
   $('#loading').hide();
