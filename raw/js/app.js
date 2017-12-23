@@ -29,6 +29,7 @@ $('#admin-dungeon').hide();
 $('#loading').hide();
 $('#loaded').show();
 $('#secret').val('');
+$('#create-new-player').hide();
 
 function enterDungeonMaster() {
   $('#new-player').hide();
@@ -66,10 +67,27 @@ function showPlayerSelection() {
 
 }
 
+function showNewPlayer() {
+  $('#new-player').hide();
+  $('#player-enter').hide();
+  $('#enter-dungeon').hide();
+  $('#create-new-player').show();
+
+}
+
 function addPlayer() {
   var playerObject = {};
   playerObject.playerName = $("#adminPlayerEntry").val();
   playerObject.p = 'gamer';
   playersRef.push(playerObject);
   $('#adminPlayerEntry').val("");
+}
+
+function createNewPlayer(){
+  var playerObject = {};
+  playerObject.playerName = $("#playername").val();
+  playerObject.p = 'gamer';
+  playersRef.push(playerObject);
+  $('#playername').val("");
+
 }
