@@ -15,15 +15,41 @@ var specialRef = firebase.database().ref('special');
 var playersRef = firebase.database().ref('players');
 var playerRef;
 var playerlist = [];
+var characterRefs = [];
 
 playersRef.on('value', function(snapshot) {
   var html = '';
   playerlist = [];
   snapshot.forEach(function(childSnapshot){
+    var customStyle = '';
     var player = childSnapshot.val();
     var key = childSnapshot.key;
+    var playerKey = childSnapshot.key;
     html = html + player.playerName + '-' + player.p + '<br> \n';
-    playerlist.push({key: key, username:player.playerName,p:player.p});
+    var characters = player.characters;
+    if (characters) {
+      for (var key in characters) {
+
+          if (characters.hasOwnProperty(key)) {
+            html = html + ' - '
+            html = html + characters[key].name
+            if (characters[key].proposedHitPoints != characters[key].hitPoints) {
+              customStyle = ';background-color:#fcc';
+            } else {
+              customStyle = '';
+            }
+            html = html + ' <input id="prop'+key+'" type="text" style="width:50px'+customStyle+'" value="' + characters[key].hitPoints + '">'
+            html = html + characters[key].proposedHitPoints;
+            html = html + ' <button onclick="updateCharacter(\''+key+'\', \''+playerKey+'\')">Update</button> ';
+            html = html + '<br>';
+          }
+      }
+
+
+    }
+
+    playerlist.push({key: playerKey, username:player.playerName,p:player.p});
+
   });
   $('#adminPlayerList').html(html);
 });
@@ -36,6 +62,11 @@ $('#loaded').show();
 $('#secret').val('');
 $('#create-new-player').hide();
 $('#player-logged-in').hide();
+
+function updateCharacter(key, playerKey) {
+  var characterRef = firebase.database().ref('players/'+playerKey+'/characters/'+key);
+  characterRef.update({hitPoints: $('#prop' + key).val()});
+}
 
 function enterDungeonMaster() {
   $('#new-player').hide();
@@ -75,13 +106,16 @@ function loginPlayer() {
       found = true;
       playerRef = firebase.database().ref('players/' + playerlist[i].key + '/characters');
       playerRef.on('value', function(snapshot) {
-        console.log(snapshot);
-        alert('update the character list');
+        var playerHtml = '';
+        snapshot.forEach(function(childSnapshot){
+          var character = childSnapshot.val();
+          var key = childSnapshot.key;
+          characterRefs[key] = childSnapshot.ref;
+          playerHtml = playerHtml + character.name + ' ' + character.hitPoints + '/'
+          playerHtml = playerHtml + '<input onkeyup="requestHpChange(\''+key+'\', this)" style="width:50px" type="text" value=' + character.proposedHitPoints + '><br>';
+        });
+        $("#character-list").html(playerHtml);
       });
-      /*
-      to create a new character
-      playerRef.push({test:'test'})
-      */
     }
   };
 
@@ -91,9 +125,13 @@ function loginPlayer() {
 
 }
 
+function requestHpChange(key, caller) {
+  characterRefs[key].update({proposedHitPoints:caller.value});
+}
+
 function addCharacter() {
-  console.log(playerRef);
-  alert('add a character');
+  var characterName = $('#character-new-name').val();
+  playerRef.push({name: characterName, hitPoints: 0, proposedHitPoints: 0});
 }
 
 function showPlayerSelection() {
