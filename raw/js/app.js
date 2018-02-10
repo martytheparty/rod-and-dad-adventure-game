@@ -114,7 +114,7 @@ function loginPlayer() {
           playerHtml = playerHtml + character.name + ' ' + character.hitPoints + '/'
           playerHtml = playerHtml + '<input onkeyup="requestHpChange(\''+key+'\', this)" style="width:50px" type="text" value=' + character.proposedHitPoints + '><br>';
         });
-        $("#character-list").html(playerHtml);
+        $("#list-characters").html(playerHtml);
       });
     }
   };
