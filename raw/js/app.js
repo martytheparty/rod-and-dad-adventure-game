@@ -54,7 +54,7 @@ playersRef.on('value', function(snapshot) {
   $('#adminPlayerList').html(html);
 });
 
-$('#player-login').hide('');
+$('#login-player-form').hide('');
 $('#login-dungeon').hide();
 $('#admin-dungeon').hide();
 $('#loading').hide();
@@ -98,7 +98,7 @@ function loginPlayer() {
   var p = $("#word").val();
   for(var i=0;i<playerlist.length;i++){
     if (playerlist[i].username === username && playerlist[i].p === p) {
-      $('#player-login').hide();
+      $('#login-player-form').hide();
       $('#player-logged-in').show();
 
       $('#username').val("");
@@ -138,7 +138,7 @@ function showPlayerSelection() {
   $('#new-player').hide();
   $('#player-enter').hide();
   $('#enter-dungeon').hide();
-  $('#player-login').show();
+  $('#login-player-form').show();
 
 }
 
@@ -165,7 +165,7 @@ function createNewPlayer(){
   playersRef.push(playerObject);
   $('#playername').val("");
 
-  $('#player-login').hide();
+  $('#login-player-form').hide();
   $('#login-dungeon').hide();
   $('#admin-dungeon').hide();
   $('#loading').hide();
